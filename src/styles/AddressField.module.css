@@ -1,0 +1,7 @@
+.address_container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  background: white;
+  padding: 4em;
+}/*# sourceMappingURL=AddressField.module.css.map */
