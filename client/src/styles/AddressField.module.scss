@@ -2,6 +2,47 @@
   display: flex;
   align-items: center;
   gap: 2em;
-  background: white;
-  padding: 4em;
+  background: url("../assets/pattern-bg-desktop.png") no-repeat;
+  background-size: cover;
+  padding: 10em;
+}
+
+.address_form {
+  display: grid;
+  place-content: center;
+  gap: 3em;
+  width: 100%;
+
+  label {
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.input_field {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 50em;
+
+  button {
+    border: none;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    padding: 1em;
+    background: black;
+    color: white;
+  }
+
+  input {
+    border: none;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    padding: 1em;
+    width: 40em;
+  }
 }
