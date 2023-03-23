@@ -1,30 +1,18 @@
-import React, { useEffect } from "react";
 import styles from "../styles/AddressField.module.css";
+import arrow from "../assets/arrow.svg";
 
 const AddressField = () => {
-  useEffect(() => {
-    const fetchGeoIpData = async () => {
-      try {
-        const url = `http://localhost:4000/api/geoip`;
-
-        const res = await fetch(url, {
-          headers: { "Content-Type": "application/json" },
-        });
-        const data = await res.json();
-        console.log(data);
-      } catch (error) {
-        console.trace(error);
-      }
-    };
-    fetchGeoIpData();
-  }, []);
-
   return (
     <div className={styles.address_container}>
-      <form>
+      <form className={styles.address_form}>
         <label>IP Address Tracker</label>
-        <input type="number"></input>
-        <button>Submit</button>
+        <div className={styles.input_field}>
+          <input
+            type="text"
+            placeholder="Search for any IP address or domain"
+          ></input>
+          <button>Search</button>
+        </div>
       </form>
     </div>
   );
