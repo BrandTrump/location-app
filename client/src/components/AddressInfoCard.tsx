@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/AddressInfoCard.module.css";
 
-const AddressInfoCard = () => {
+interface Props {
+  address: string;
+}
+
+const AddressInfoCard = ({ address }: Props) => {
   const [ipInfo, setIpInfo] = useState<string>("");
   const [cityInfo, setCityInfo] = useState<string>("");
   const [regoinInfo, setRegionInfo] = useState<string>("");
   const [timezoneInfo, setTimezoneInfo] = useState<string>("");
   const [ispInfo, setIspInfo] = useState<string>("");
   useEffect(() => {
+    let isCancelled = false;
     const fetchGeoIpData = async () => {
+      const apiKey = import.meta.env.VITE_API_KEY;
       try {
-        const url = `http://localhost:4000/api/geoip`;
+        const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${address}`;
 
-        const res = await fetch(url, {
-          headers: { "Content-Type": "application/json" },
-        });
+        const res = await fetch(url);
         const data = await res.json();
         console.log(data);
         setIpInfo(data.ip);
@@ -23,11 +27,15 @@ const AddressInfoCard = () => {
         setTimezoneInfo(data.location.timezone);
         setIspInfo(data.isp);
       } catch (error) {
-        console.trace(error);
+        console.error(error);
       }
+
+      return () => {
+        isCancelled = true;
+      };
     };
     fetchGeoIpData();
-  }, []);
+  }, [address]);
 
   return (
     <div className={styles.card_container}>
