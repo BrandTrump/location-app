@@ -9,9 +9,6 @@ const Home = () => {
       <div className={styles.contianer}>
         <div className={styles.address_field}>
           <AddressField />
-          <div className={styles.address_card}>
-            <AddressInfoCard />
-          </div>
         </div>
       </div>
       <Map />
