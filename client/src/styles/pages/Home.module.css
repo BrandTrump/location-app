@@ -1,12 +1,4 @@
 .address_field {
   position: relative;
   z-index: 1;
-}
-
-.address_card {
-  position: absolute;
-  z-index: 2;
-  bottom: -25%;
-  left: 50%;
-  transform: translateX(-50%);
 }/*# sourceMappingURL=Home.module.css.map */

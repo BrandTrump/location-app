@@ -1,10 +1,16 @@
 .address_container {
-  display: flex;
-  align-items: center;
-  gap: 2em;
   background: url("../assets/pattern-bg-desktop.png") no-repeat;
   background-size: cover;
-  padding: 10em;
+  padding: 15em;
+  position: relative;
+}
+
+.address_card {
+  position: absolute;
+  z-index: 2;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .address_form {
@@ -26,7 +32,6 @@
   gap: 0;
   align-items: center;
   justify-content: center;
-
   width: 50em;
 
   button {
