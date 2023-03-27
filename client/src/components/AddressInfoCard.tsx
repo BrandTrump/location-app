@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/AddressInfoCard.module.css";
 
+interface GeoIpData {
+  ip: string;
+  location: {
+    city: string;
+    region: string;
+    timezone: string;
+  };
+  isp: string;
+}
+
 interface Props {
   address: string;
 }
 
 const AddressInfoCard = ({ address }: Props) => {
-  const [ipInfo, setIpInfo] = useState<string>("");
-  const [cityInfo, setCityInfo] = useState<string>("");
-  const [regoinInfo, setRegionInfo] = useState<string>("");
-  const [timezoneInfo, setTimezoneInfo] = useState<string>("");
-  const [ispInfo, setIspInfo] = useState<string>("");
+  const [geoIpData, setGeoIpData] = useState<GeoIpData | null>(null);
+
   useEffect(() => {
     let isCancelled = false;
+
     const fetchGeoIpData = async () => {
       const apiKey = import.meta.env.VITE_API_KEY;
       try {
@@ -20,42 +28,47 @@ const AddressInfoCard = ({ address }: Props) => {
 
         const res = await fetch(url);
         const data = await res.json();
-        console.log(data);
-        setIpInfo(data.ip);
-        setCityInfo(data.location.city);
-        setRegionInfo(data.location.region);
-        setTimezoneInfo(data.location.timezone);
-        setIspInfo(data.isp);
+
+        if (!isCancelled) {
+          setGeoIpData(data);
+        }
       } catch (error) {
         console.error(error);
       }
-
-      return () => {
-        isCancelled = true;
-      };
     };
+
     fetchGeoIpData();
+
+    return () => {
+      isCancelled = true;
+    };
   }, [address]);
+
+  if (!geoIpData) {
+    return null;
+  }
+
+  const { ip, location, isp } = geoIpData;
 
   return (
     <div className={styles.card_container}>
       <div className={styles.address_info}>
         <h2>Ip address</h2>
-        <h1>{ipInfo}</h1>
+        <h1>{ip}</h1>
       </div>
       <div className={styles.address_info}>
         <h2>Location</h2>
         <h1>
-          {cityInfo}, {regoinInfo}
+          {location.city}, {location.region}
         </h1>
       </div>
       <div className={styles.address_info}>
         <h2>Timezone</h2>
-        <h1>{timezoneInfo}</h1>
+        <h1>{location.timezone}</h1>
       </div>
       <div className={styles.address_info}>
         <h2>Isp</h2>
-        <h1>{ispInfo}</h1>
+        <h1>{isp}</h1>
       </div>
     </div>
   );
