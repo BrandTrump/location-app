@@ -1,5 +1,4 @@
 import styles from "../styles/AddressField.module.css";
-import arrow from "../assets/arrow.svg";
 import { useState } from "react";
 import AddressInfoCard from "./AddressInfoCard";
 
