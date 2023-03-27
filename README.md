@@ -56,6 +56,8 @@ render(
 )
 ```
 
+- IP Geolocation API (https://geo.ipify.org/) will not work without disabling adblock on browser. **Error that occurs: net::ERR_BLOCKED_BY_CLIENT**
+
 ## Author
 
 - Website - Brandon Trump (https://brandontrump.dev/)
