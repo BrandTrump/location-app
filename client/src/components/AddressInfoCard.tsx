@@ -1,22 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MapContext } from "../context/MapContext";
 import styles from "../styles/AddressInfoCard.module.css";
-
-interface GeoIpData {
-  ip: string;
-  location: {
-    city: string;
-    region: string;
-    timezone: string;
-  };
-  isp: string;
-}
 
 interface Props {
   address: string;
 }
 
 const AddressInfoCard = ({ address }: Props) => {
-  const [geoIpData, setGeoIpData] = useState<GeoIpData | null>(null);
+  const { geoIpData, setGeoIpData } = useContext(MapContext);
 
   useEffect(() => {
     let isCancelled = false;
