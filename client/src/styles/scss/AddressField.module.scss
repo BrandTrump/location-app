@@ -41,6 +41,12 @@
     padding: 1em;
     background: black;
     color: white;
+    cursor: pointer;
+
+    &:hover {
+      background: rgb(44, 44, 44);
+      transition: 0.3s;
+    }
   }
 
   input {
