@@ -58,3 +58,17 @@
     width: 40em;
   }
 }
+
+@media screen and (max-width: 930px) {
+  .address_card {
+    bottom: -35%;
+  }
+
+  .address_form {
+    gap: 3em;
+  }
+
+  .input_field {
+    width: 30em;
+  }
+}
