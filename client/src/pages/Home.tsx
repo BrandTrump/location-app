@@ -1,8 +1,7 @@
 import AddressField from "../components/AddressField";
-import AddressInfoCard from "../components/AddressInfoCard";
 import Map from "../components/Map";
 import { MapContext } from "../context/MapContext";
-import styles from "../styles/pages/Home.module.css";
+import styles from "../styles/scss/Home.module.scss";
 import { useState } from "react";
 
 interface GeoIpData {

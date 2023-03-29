@@ -1,4 +1,4 @@
-import styles from "../styles/AddressField.module.css";
+import styles from "../styles/scss/AddressField.module.scss";
 import { useState } from "react";
 import AddressInfoCard from "./AddressInfoCard";
 

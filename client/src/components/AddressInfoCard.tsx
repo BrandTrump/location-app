@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { MapContext } from "../context/MapContext";
-import styles from "../styles/AddressInfoCard.module.css";
+import styles from "../styles/scss/AddressInfoCard.module.scss";
 
 interface Props {
   address: string;
