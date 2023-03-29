@@ -3,11 +3,12 @@
   background-size: cover;
   padding: 15em;
   position: relative;
+  z-index: 400;
 }
 
 .address_card {
   position: absolute;
-  z-index: 2;
+  z-index: 401;
   bottom: -20%;
   left: 50%;
   transform: translateX(-50%);
