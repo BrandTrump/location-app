@@ -30,7 +30,6 @@ Users should be able to:
 - CSS modules
 - Flexbox
 - CSS Grid
-- Node.js
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vitejs.dev/) - React framework
 
